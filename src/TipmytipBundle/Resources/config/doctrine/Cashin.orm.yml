@@ -1,0 +1,25 @@
+# src/TipmytipBundle/Resources/config/doctrine/Cashin.orm.yml
+TipmytipBundle\Entity\Cashin:
+  type: entity
+  table: cashin
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    amount:
+      type: decimal
+      length: 10,2
+    currency:
+      type: string
+      length: 255
+    date:
+      type: datetime
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: cashins
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        onDelete: CASCADE

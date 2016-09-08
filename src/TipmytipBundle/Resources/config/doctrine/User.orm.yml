@@ -1,0 +1,59 @@
+# src/TipmytipBundle/Resources/config/doctrine/User.orm.yml
+TipmytipBundle\Entity\User:
+  type: entity
+  table: user
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    email:
+      type: string
+      length: 255
+      unique: true
+    password:
+      type: string
+      length: 255
+    first_name:
+      type: string
+      length: 255
+    last_name:
+      type: string
+      length: 255
+    birthdate:
+      type: string
+      length: 255
+    gender:
+      type: string
+      length: 255
+    nationality:
+      type: string
+      length: 255
+    country:
+      type: string
+      length: 255
+    admin_account:
+      type: boolean
+    isActive:
+      type: boolean
+  oneToMany:
+    cashins:
+      targetEntity: Cashin
+      mappedBy: user
+      onDelete: CASCADE
+    cashouts:
+      targetEntity: Cashout
+      mappedBy: user
+      onDelete: CASCADE
+    languages:
+      targetEntity: Userlanguage
+      mappedBy: user
+      onDelete: CASCADE
+  manyToOne:
+    location:
+      targetEntity: Location
+      inversedBy: users
+      joinColumn:
+        name: location_id
+        referencedColumnName: id
+        onDelete: CASCADE

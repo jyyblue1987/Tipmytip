@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block page %}gemmie{% endblock %}
+{% block title %}tipmytip{% endblock %}
+
+{% block body %}
+	<br/>
+	<a href="{{ path('gemmie_contact_csv') }}">Download all contacts in .csv</a>
+	<br/><br/>
+	<h1>Last 50 contacts :</h1>
+	<br/>
+    <table id="contact-index">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Email</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <!-- <th>Ip_address</th> -->
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.date }}</td>
+                <td>{{ contact.firstname }}</td>
+                <td>{{ contact.lastname }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.subject }}</td>
+                <td>{{ contact.message }}</td>
+                <!-- <td>{{ contact.ipaddress }}</td> -->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

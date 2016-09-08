@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}tipmytip{% endblock %}
+{% block description %}Discover and share local places you really like. Get personal advice and enjoy the perfect bars, restaurants, activities… that really fit your taste.{% endblock %}
+{% block javascripts %}
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDAsYChXpEI8IrcU72fSoOtgYy_Jzq8Zfs" type="text/javascript"></script>
+	<script src="/js/geolocation.js"></script>
+{% endblock %}
+
+{% block body %}
+	<img id="slider-mobile" src="/img/slider-mobile@2x.png" alt="Tipmytip">
+	<div id="slider">
+		<div id="title">
+			<h1>
+				Connect with your local twin to <br/><span>discover amazing <br/> local treasures</span>
+			</h1>
+		</div>
+		<div id="video"></div>
+	</div>
+	<div id="form">
+		<h1>
+			Connect with your local twin to<br/>
+			discover amazing local treasures
+		</h1>
+		<div id="form-content">
+			<h2>
+				Tell us what you want to explore today!
+			</h2>
+			
+			<div id="form-desktop">
+				<div class="separator"></div>
+				<div class="content">
+					{{ form_start(form, {'attr': {'novalidate': ''}}) }}
+					<ul>
+						<li>
+							{{ form_label(form.inquirer_delete, 'Location') }} {{ form_widget(form.inquirer_delete) }} <div class="geolocation"></div>
+						</li>
+						<li>
+							{{ form_label(form.question_date, 'Date') }} {{ form_widget(form.question_date) }} <div class="calendar"></div>
+						</li>
+						<li class="question-type">
+							<div id="question-type-01" class="active"></div>
+							<div id="question-type-02"></div>
+							<div id="question-type-03"></div>
+							<div id="question-type-04"></div>
+							<div id="question-type-05"></div>
+							<div id="question-type-06"></div>
+						</li>
+				        <li class="question-text">
+							{{ form_widget(form.question_text) }}
+						</li>
+				        <input type="submit" value="Send my question now!" />
+				    </ul>
+				    {{ form_end(form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

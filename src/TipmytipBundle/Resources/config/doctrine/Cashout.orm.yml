@@ -1,0 +1,33 @@
+# src/TipmytipBundle/Resources/config/doctrine/Cashout.orm.yml
+TipmytipBundle\Entity\Cashout:
+  type: entity
+  table: cashout
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    amount:
+      type: decimal
+      length: 10,2
+    currency:
+      type: string
+      length: 255
+    fee:
+      type: decimal
+      length: 10,2
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: cashouts
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        onDelete: CASCADE
+    receiver:
+      targetEntity: User
+      inversedBy: cashouts
+      joinColumn:
+        name: receiver_id
+        referencedColumnName: id
+        onDelete: CASCADE

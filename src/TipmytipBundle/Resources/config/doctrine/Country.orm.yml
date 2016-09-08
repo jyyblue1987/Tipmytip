@@ -1,0 +1,17 @@
+# src/TipmytipBundle/Resources/config/doctrine/Country.orm.yml
+TipmytipBundle\Entity\Country:
+  type: entity
+  table: country
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+  oneToMany:
+    locations:
+      targetEntity: Location
+      mappedBy: country
+      onDelete: CASCADE

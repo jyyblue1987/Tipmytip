@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block page %}gemmie{% endblock %}
+{% block title %}tipmytip{% endblock %}
+
+{% block body %}
+	<br/>
+	<a href="{{ path('gemmie_invitation_csv') }}">Download all invitations in .csv</a>
+	<br/><br/>
+	<h1>Last 50 invitations :</h1>
+	<br/>
+    <table id="invitation-index">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>First_name</th>
+                <th>Last_name</th>
+                <th>Email</th>
+                <th>Country</th>
+                <th>City</th>
+                <!-- <th>Ip_address</th> -->
+            </tr>
+        </thead>
+        <tbody>
+        {% for invitation in invitations %}
+            <tr>
+                <td>{{ invitation.id }}</td>
+                <td>{{ invitation.date }}</td>
+                <td>{{ invitation.firstname }}</td>
+                <td>{{ invitation.lastname }}</td>
+                <td>{{ invitation.email }}</td>
+                <td>{{ invitation.country }}</td>
+                <td>{{ invitation.city }}</td>
+                <!-- <td>{{ invitation.ipaddress }}</td> -->
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

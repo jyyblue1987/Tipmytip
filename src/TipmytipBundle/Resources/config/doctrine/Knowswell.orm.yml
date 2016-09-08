@@ -1,0 +1,23 @@
+# src/TipmytipBundle/Resources/config/doctrine/Knowswell.orm.yml
+TipmytipBundle\Entity\Knowswell:
+  type: entity
+  table: knowswell
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: locations
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        onDelete: CASCADE
+    language:
+      targetEntity: Location
+      inversedBy: users
+      joinColumn:
+        name: location_id
+        referencedColumnName: id
+        onDelete: CASCADE

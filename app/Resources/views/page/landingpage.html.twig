@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block page %}lp{% endblock %}
+{% block title %}tipmytip{% endblock %}
+{% block description %}Discover and share local places you really like. Get personal advice and enjoy the perfect bars, restaurants, activities… that really fit your taste.{% endblock %}
+
+{% block body %}
+	<img id="slider-mobile" src="/img/slider-lp-mobile@2x.png" alt="Tipmytip">
+	<div id="slider">
+		<div id="title">
+			<h1>
+				Coming soon <br/><span>A new amazing way to discover <br/>and share local treasures!</span>
+			</h1>
+		</div>
+		<div id="video"></div>
+	</div>
+	<div id="form">
+		<h1>
+			<span>Coming soon</span> - A new amazing way to<br/>
+			discover and share local treasures!
+		</h1>
+		<div class="separator"></div>
+		<h2>
+			Ask for an invitation<br/>
+			to join the TipMyTip community!
+		</h2>
+		<div id="form-content">
+			<h2>
+				Ask for an invitation to join the TipMyTip community!
+			</h2>
+			
+			<div id="form-desktop">
+				<div class="separator"></div>
+				<div id="invitation">
+					{{ form_start(form, {'attr': {'novalidate': ''}}) }}
+					<ul>
+						<li class="first-name">
+							{{ form_label(form.first_name, 'First Name') }} {{ form_widget(form.first_name) }}
+							<p class="error">Oops, we need your first name</p>
+						</li>
+				        <li class="family-name">
+							{{ form_label(form.last_name, 'Family Name') }} {{ form_widget(form.last_name) }}
+							<p class="error">Oops, we need your family name</p>
+						</li>
+						<li class="email">
+							{{ form_label(form.email, 'E-mail') }} {{ form_widget(form.email, {'type' : 'email'}) }}
+							<p class="error">Oops, your email doesn't seem valid</p>
+						</li>
+						<li class="country">
+							{{ form_label(form.country) }} {{ form_widget(form.country) }}
+							<p class="error">Oops, we need your country</p>
+						</li>
+						<li class="city">
+							{{ form_label(form.city) }} {{ form_widget(form.city) }}
+							<p class="error">Oops, we need your city</p>
+						</li>
+				        <input type="submit" value="Ask now, it's free!" />
+				    </ul>
+				    {{ form_end(form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

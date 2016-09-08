@@ -1,0 +1,30 @@
+# src/TipmytipBundle/Resources/config/doctrine/Contact.orm.yml
+TipmytipBundle\Entity\Contact:
+  type: entity
+  table: contact
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    date:
+      type: string
+      length: 255
+    first_name:
+      type: string
+      length: 255
+    last_name:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+    subject:
+      type: string
+      length: 255
+    message:
+      type: string
+      length: 255
+    ip_address:
+      type: string
+      length: 255

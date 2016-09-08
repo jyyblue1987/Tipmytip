@@ -1,0 +1,21 @@
+# src/TipmytipBundle/Resources/config/doctrine/Tip.orm.yml
+TipmytipBundle\Entity\Tip:
+  type: entity
+  table: tip
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    amount:
+      type: decimal
+      length: 10,2
+    currency:
+      type: string
+      length: 255
+    date:
+      type: datetime
+      length: 255
+    fee:
+      type: decimal
+      length: 10,2

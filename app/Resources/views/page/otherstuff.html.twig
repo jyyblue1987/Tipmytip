@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tipmytip - Other Stuff{% endblock %}
+
+{% block body %}
+    <h1>Other Stuff</h1>
+    
+    <ul>
+    	<li>
+    		<a href="{{ path('my_profile') }}">My profile</a>
+    	</li>
+    	<li>
+    		<a href="{{ path('cash-in_new') }}">Execute a cash in</a>
+    	</li>
+    	<li>
+    		<a href="{{ path('cash-out_new') }}">Execute a cash out</a>
+    	</li>
+    </ul>
+{% endblock %}

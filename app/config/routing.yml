@@ -1,0 +1,11 @@
+signup:
+    path:     /signup
+    defaults: { _controller: TipmytipBundle:Signup:index }
+
+landing_page:
+    path:     /
+    defaults: { _controller: TipmytipBundle:Page:landingpage }
+    
+landing_page_thank_you:
+    path:     /thank-you
+    defaults: { _controller: TipmytipBundle:Page:landingpagethankyou }

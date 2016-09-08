@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block page %}contact{% endblock %}
+{% block title %}tipmytip • Contact us{% endblock %}
+{% block description %}Contact us.{% endblock %}
+
+{% block body %}
+	<div id="contactbg"></div>
+	<div id="contactcontent">
+		<div class="close"></div>
+		<h2>Contact us</h2>
+		{{ form_start(contact_form, {'attr': {'novalidate': ''}}) }}
+			<ul>
+				<li class="first-name">
+					{{ form_widget(contact_form.first_name, {'value' : 'First Name'}) }}
+					<p class="error">Oops, we need your first name</p>
+				</li>
+				<li class="last-name">
+					{{ form_widget(contact_form.last_name, {'value' : 'Family Name'}) }}
+					<p class="error">Oops, we need your family name</p>
+				</li>
+				<li class="email">
+					{{ form_widget(contact_form.email, {'value' : 'E-mail', 'type' : 'email'}) }}
+					<p class="error">Oops, your email doesn't seem valid</p>
+				</li>
+				<li class="subject">
+					{{ form_widget(contact_form.subject, {'value' : 'Subject'}) }}
+					<p class="error">Oops, we need a subject for your message</p>
+				</li>
+				<li class="message">
+					 {{ form_widget(contact_form.message, {'value' : 'Message'}) }}
+					<p class="error">Oops, we need your message</p>
+				</li>
+				<input type="submit" value="Send" />
+			</ul>
+		{{ form_end(contact_form) }}
+	</div>
+	<img id="slider-mobile" src="/img/slider-mobile@2x.png" alt="Tipmytip">
+	<div id="slider">
+		<div id="title">
+			<h1>
+				Connect with your local twin to <br/><span>discover amazing <br/> local treasures</span>
+			</h1>
+		</div>
+		<div id="video"></div>
+	</div>
+	<div id="form">
+		<h1>
+			Connect with your local twin to<br/>
+			discover amazing local treasures
+		</h1>
+		<div id="form-content">
+			<h2>
+				Tell us what you want to explore today!
+			</h2>
+			
+			<div id="form-desktop">
+				<div class="separator"></div>
+				<div class="content">
+					{{ form_start(question_form, {'attr': {'novalidate': ''}}) }}
+					<ul>
+						<li>
+							{{ form_label(question_form.inquirer_delete, 'Location') }} {{ form_widget(question_form.inquirer_delete) }} <div class="geolocation"></div>
+						</li>
+						<li>
+							{{ form_label(question_form.question_date, 'Date') }} {{ form_widget(question_form.question_date) }} <div class="calendar"></div>
+						</li>
+						<li class="question-type">
+							<div id="question-type-01" class="active"></div>
+							<div id="question-type-02"></div>
+							<div id="question-type-03"></div>
+							<div id="question-type-04"></div>
+							<div id="question-type-05"></div>
+							<div id="question-type-06"></div>
+						</li>
+				        <li class="question-text">
+							{{ form_widget(question_form.question_text) }}
+						</li>
+				        <input type="submit" value="Send my question now!" />
+				    </ul>
+				    {{ form_end(question_form) }}
+				</div>
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

@@ -1,0 +1,17 @@
+# src/TipmytipBundle/Resources/config/doctrine/Language.orm.yml
+TipmytipBundle\Entity\Language:
+  type: entity
+  table: language
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+      unique: true
+  users:
+      targetEntity: Userlanguage
+      mappedBy: language
+      onDelete: CASCADE

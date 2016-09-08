@@ -1,0 +1,21 @@
+# src/TipmytipBundle/Resources/config/doctrine/Taste.orm.yml
+TipmytipBundle\Entity\Taste:
+  type: entity
+  table: taste
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    name:
+      type: string
+      length: 255
+    question:
+      type: string
+      length: 255
+    scale:
+      type: string
+      length: 255
+    priority:
+      type: string
+      length: 255

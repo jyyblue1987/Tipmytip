@@ -1,0 +1,16 @@
+# This file is auto-generated during the composer install
+parameters:
+#
+# Server Parameters
+    database_host: tipmytipfidbsb.mysql.db
+    database_port: null
+    database_name: tipmytipfidbsb
+    database_user: tipmytipfidbsb
+    database_password: Sandbox123
+    secret: 795bf9448a38513287f1eeb1be1f5d9cc5805bc7
+    mailer_transport: smtp
+    mailer_auth_mode:  login
+    mailer_host: smtp.tipmytip.com
+    mailer_port: 587
+    mailer_user: sandbox@tipmytip.com
+    mailer_password: Sandbox123

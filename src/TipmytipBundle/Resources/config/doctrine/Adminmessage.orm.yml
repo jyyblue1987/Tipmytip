@@ -1,0 +1,17 @@
+# src/TipmytipBundle/Resources/config/doctrine/Adminmessage.orm.yml
+TipmytipBundle\Entity\Adminmessage:
+  type: entity
+  table: adminmessage
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    text:
+      type: string
+      length: 255
+    expiration_date:
+      type: datetime
+    priority:
+      type: string
+      length: 255

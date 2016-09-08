@@ -1,0 +1,1265 @@
+/*
+ * Tipmytip Stylesheet v1.0
+ * Copyright © Tipmytip 2016
+ *
+ */
+ 
+/* 
+ * CSS Reset
+ * http://meyerweb.com/eric/tools/css/reset/ 
+ * v2.0 | 20110126
+ * License: none (public domain)
+ *
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/*
+ * Desktop Stylesheet
+ *
+ */
+ 
+html, body {
+	font-family: 'Roboto', sans-serif;
+}
+
+header, #menu, #menu-mobile, footer {
+	z-index:9999;
+}
+
+@media screen and (min-width: 767px) {
+
+	#menu {
+		height: 90px;
+		background-color: #FFF;
+		display:block;
+	    position: fixed;
+	    top: 0;
+	    width: 100%;
+	}
+	
+	.menu-links {
+		color: #8e8e8e;
+		font-size: 14px;
+		position: absolute;
+		top: 50px;
+		right: 50px;
+	}
+	
+	.menu-links a {
+		color: #8e8e8e;
+		text-decoration: none;
+	}
+	
+	.menu-links a:hover {
+		text-decoration: underline;
+	}
+	
+	.menu-links a.active {
+		color: #0d024c;
+	}
+	
+	.menu-links a.active:hover {
+		text-decoration: none;
+	}
+	
+	#menu-mobile {
+		display: none;
+	}
+	
+	.logo {
+		display: block;
+		position: absolute;
+		top: 0px;
+	   	left: 0px;
+		background: url(/img/logo.png) no-repeat;
+		width: 365px;
+		height: 90px;
+		background-size: 365px 90px;
+	}
+	
+	body, html {
+		width: 100%;
+		height: 100%;
+	}
+	
+	#content-wrapper {
+		width: 100%;
+		height: 100%;
+	  	position: relative;
+	  	margin-bottom: -40px;
+	}
+	
+	footer {
+		height: 40px;
+		background-color: #FFF;
+		position: absolute;
+		bottom: 0;
+		text-align: center;
+  		width: 100%;
+  		color: #a5a5a5;
+  		font-size: 14px;
+  		font-size: 11px;
+	}
+	
+	#footer-links {
+  		margin-top: 20px;
+  	}
+  	
+  	#footer-links a {
+  		color: #a5a5a5;
+  		text-decoration: none;
+  	}
+  	
+  	#footer-links a:hover {
+  		text-decoration: underline;
+  	}
+  	
+  	#copyright-mobile {
+  		display: none;
+  	}
+  	
+  	#copyright {
+  		display: block;
+  		position: absolute;
+  		right: 2%;
+  		margin-top: 19px;
+  		top: 0;
+  	}
+  	
+  	#social-links {
+  		display: block;
+  		position: absolute;
+  		left: 2%;
+  		margin-top: 10px;
+  		top: 0;
+  		width: 50px;
+  		height: 20px;
+  	}
+  	
+  	#social-links a.twitter-link {
+	    width: 20px;
+	    height: 20px;
+	    display: inline-block;
+	    background: url(/img/twitter-logo.png) no-repeat;
+	    background-size: 20px 20px;
+	}
+	
+	#social-links a.facebook-link {
+	    width: 20px;
+	    height: 20px;
+	    display: inline-block;
+	    background: url(/img/facebook-logo.png) no-repeat;
+	    background-size: 20px 20px;
+	}
+	
+	#slider-mobile {
+		display: none;
+	}
+	
+	#slider {
+		display: block;
+		background: black;
+		height: 100%;
+		margin-right: 518px;
+		top: 0;
+		left: 0;
+		position: relative;
+	}
+	
+	#slider #title {
+		width: 100%;
+		height: 62%;
+		top: 10%;
+		position: relative;
+		background: #090234;
+		background: -webkit-linear-gradient(left top, #04011a, #090234); /* For Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(bottom right, #04011a, #090234); /* For Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(bottom right, #04011a, #090234); /* For Firefox 3.6 to 15 */
+  		background: linear-gradient(to bottom right, #04011a, #090234);	
+	}
+	
+	#slider #title h1 {
+		color: white;
+		text-transform: uppercase;
+		position: relative;
+		font-size: 12px;
+		top: 50px;
+		left: 50px;
+		letter-spacing: 1px;
+		line-height: 250%;
+	}
+	
+	#slider #title h1 span {
+		font-weight: 500;
+    	font-size: 26px;
+    	letter-spacing: 2px;
+	}
+	
+	#slider #video {
+		position: absolute;
+		height: 100px;
+		width: 500px;
+		bottom: 39px;
+    	height: 100%;
+    	width: 100%;
+    	background: url(/img/slider.png) bottom center no-repeat;
+		background-size: 100% auto;
+	}
+	
+	#form {
+		display: block;
+		background: #5678fd;
+		height: 100%;
+		width: 518px;
+		top: 0;
+		position: absolute;
+		right: 0;
+		background: -webkit-linear-gradient(left top, #7893fb, #4d71fe); /* For Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(bottom right, #7893fb, #4d71fe); /* For Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(bottom right, #77893fb, #4d71fe); /* For Firefox 3.6 to 15 */
+  		background: linear-gradient(to bottom right, #7893fb, #4d71fe);	
+  		color: #FFF;
+	}
+	
+	#form-content {
+  		width: 420px;
+  		height: 333px;
+    	position: relative;
+    	margin-left: auto;
+    	margin-right: auto;
+    	margin-top: 44vh;
+  		transform: translateY(-50%);
+  	}
+  	
+  	#form h1, #form h2 {
+  		display: none; 		
+  	}
+  	
+  	#form-content h2 {
+  		display: block;
+  		text-align: center;
+  		font-size: 14px;
+  	}
+  	
+  	.separator {
+  		width: 5px;
+  		height: 5px;
+  		background: url(/img/separator.png) no-repeat;
+  		background-size: 5px 5px;
+  		position: relative;
+    	left: 205px;
+    	margin: 8% 0;
+  	}
+  	
+  	#form > .separator {
+  		display: none;
+  	}
+  	
+  	#form-desktop {
+  		display: block;
+  	}
+  	
+  	#form-desktop .content {
+  		background: url(/img/form-stroke.png) no-repeat;
+  		width: 420px;
+  		height: 374px;
+  		background-size: 420px 374px;
+  	}
+  	
+  	#form-desktop .content ul {
+  		padding-top: 43px;
+  	}
+  	
+  	#form-desktop .content li {
+  		margin-left: 42px;
+  		margin-bottom: 45px;
+  	}
+  	
+  	#form-desktop .content label {
+		font-size: 14px;
+		position: absolute;
+	    margin-top: 4px;
+	}
+	  	
+  	#form-desktop .content input {
+		position: absolute;
+		right: 80px;
+		width: 210px;
+	    height: 23px;
+	    padding-left: 10px;
+	    padding-right: 10px;
+	    border-width: 0px;
+		border: none;
+		border-radius: 4px;
+		color: #4d71fe;
+		font-size: 14px;
+		background-color: white;
+	}
+	
+	#form-desktop .content li.question-text {
+		margin-top: 150px;
+	}
+	
+	#form-desktop .content li.question-text input {
+		right: 50px;
+		width: 307px;
+	    height: 78px;
+		background-color: white;
+		padding-top: 0px;
+	}
+	
+	#form-desktop .content input[type=submit] {
+		position: absolute;
+		width: 202px;
+		height: 40px;
+		top: 380px;
+		background: url(/img/cta-home-stroke.png) no-repeat;
+		background-size: 202px 40px;
+		border: none;
+		right: 50px;
+		color: white;
+		font-family: 'Roboto', sans-serif;
+		font-size: 14px;
+	    cursor: pointer;
+	}
+	
+	#form-desktop .content .geolocation {
+		width: 25px;
+		height: 25px;
+		background: url(/img/btn-geolocation.png) no-repeat;
+		background-size: 25px 25px;
+		right: 45px;
+		position: absolute;
+		cursor: pointer;
+	}
+	
+	#form-desktop .content .calendar {
+		width: 25px;
+		height: 25px;
+		background: url(/img/btn-calendar.png) no-repeat;
+		background-size: 25px 25px;
+		right: 45px;
+		position: absolute;
+		cursor: pointer;
+	}
+	
+	#form-desktop .content li.question-type {
+		height: 45px;
+	    margin-top: 45px;
+	    position: absolute;
+	    width: 330px;
+	}
+	
+	#form-desktop .content li.question-type div {
+		height: 45px;
+		width: 45px;
+	    position: absolute;
+	    top: 0;
+	    cursor: pointer;
+	}
+	
+	#form-desktop .content li.question-type div:hover {
+		background-position: 0px -45px !important;
+	}
+	
+	#form-desktop .content li.question-type div.active {
+		background-position: 0px 0px !important;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-01 {
+		background: url(/img/btn-question-01.png) no-repeat;
+		background-size: 43px 135px;
+	    background-position: 0px -90px; 
+		left: 0;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-02 {
+		background: url(/img/btn-question-02.png) no-repeat;
+		background-size: 43px 135px;
+	    background-position: 0px -90px; 
+		left: 52px;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-03 {
+		background: url(/img/btn-question-03.png) no-repeat;
+		background-size: 43px 135px;
+	    background-position: 0px -90px; 
+		left: 104px;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-04 {
+		background: url(/img/btn-question-04.png) no-repeat;
+		background-size: 43px 135px;
+	    background-position: 0px -90px; 
+		left: 156px;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-05 {
+		background: url(/img/btn-question-05.png) no-repeat;
+		background-size: 43px 135px;
+	    background-position: 0px -90px; 
+		left: 208px;
+	}
+	
+	#form-desktop .content li.question-type div#question-type-06 {
+		background: url(/img/btn-question-06.png) no-repeat;
+		background-size: 68px 135px;
+		width: 68px;
+	    background-position: 0px -90px; 
+		left: 260px;
+	}
+	
+	/* for high resolution display */
+	
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+		.logo {
+			background: url(/img/logo@2x.png) no-repeat;
+		    width: 365px;
+			height: 90px;
+			background-size: 365px 90px;
+		}
+		
+		#social-links a.twitter-link {
+		    width: 20px;
+		    height: 20px;
+		    background: url(/img/twitter-logo@2x.png) no-repeat;
+		    background-size: 20px 20px;
+		}
+		
+		#social-links a.facebook-link {
+		    width: 20px;
+		    height: 20px;
+		    background: url(/img/facebook-logo@2x.png) no-repeat;
+		    background-size: 20px 20px;
+		}
+		
+		#slider #video {
+	    	background: url(/img/slider@2x.png) bottom center no-repeat;
+			background-size: 100% auto;
+		}
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	#form {
+		width: 55%;
+	}
+	
+	#slider {
+		width: 45%;
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 900px) {
+	#form {
+		width: 430px;
+	}
+	
+	#slider {
+	    height: 100%;
+	    margin-right: 430px;
+	}
+}
+
+/*
+ * Mobile Stylesheet
+ *
+ */
+
+@media screen and (max-width: 767px) {
+  	#menu-mobile {
+    	display:block;
+    	background-color: #FFF;
+    	height: 55px;
+    	position: fixed;
+    	top: 0;
+    	width: 100%;
+  	}
+  
+  	#menu {
+  		display: none;
+  	}
+  
+  	.logo {
+		display: block;
+		position: relative;
+    	margin: auto;
+    	top: 0px;
+		background: url(/img/logo-mobile.png) no-repeat;
+		width: 200px;
+		height: 55px;
+		background-size: 200px 55px;
+  	}
+  	
+  	.burger-menu {
+		display: block;
+		position: absolute;
+		top: 0px;
+    	left: 0px;
+		background: url(/img/burger-menu-mobile.png) no-repeat;
+		width: 55px;
+		height: 55px;
+		background-size: 55px 55px;
+  	}
+  	
+  	.account-menu {
+		display: block;
+		position: absolute;
+		top: 0px;
+    	right: 0px;
+		background: url(/img/account-menu-mobile.png) no-repeat;
+		width: 55px;
+		height: 55px;
+		background-size: 55px 55px;
+  	}
+  	
+  	#content-wrapper {
+  		margin-top: 55px;
+  		width: 100%;
+  		position: relative;
+  	}
+  	
+  	#slider-mobile {
+  		display: block;
+  		width: 100%;
+  		height: 100%;
+  	}
+  	
+  	#slider {
+  		display: none;
+  	}
+  	
+  	#form {
+  		width: 100%;
+  		height: 515px;
+  		background: #5678fd;
+  		background: -webkit-linear-gradient(left top, #7993fb, #4e72fe); /* For Safari 5.1 to 6.0 */
+  		background: -o-linear-gradient(bottom right, #7993fb, #4e72fe); /* For Opera 11.1 to 12.0 */
+  		background: -moz-linear-gradient(bottom right, #7993fb, #4e72fe); /* For Firefox 3.6 to 15 */
+  		background: linear-gradient(to bottom right, #7993fb, #4e72fe);	
+  	}
+  	
+  	#form h1, #form h2 {
+  		color: #FFF;
+  		font-family: 'Roboto', sans-serif;
+  		text-align: center;
+  		font-size: 17px;
+  		padding-top: 25px;
+  	}
+  	
+  	#form h1 {
+  		padding-top: 25px;
+  	}
+  	
+  	#form h2 {
+  		padding-top: 0;
+  	}
+  	
+  	#form h1 span {
+		font-weight: 700;
+	}
+	
+	#form > .separator {
+	    width: 5px;
+	    height: 5px;
+	    background: url(/img/separator.png) no-repeat;
+	    background-size: 5px 5px;
+	    position: relative;
+	    margin: 15px auto;
+	}
+  	
+  	#form-content {
+  		width: 316px;
+  		height: 333px;
+  		background: url(/img/form-stroke-mobile.png) no-repeat;
+  		background-size: 316px 333px;
+  		margin: 25px auto;
+  	}
+  	
+  	#form-content h2 {
+  		display: none;
+  	}
+  	
+  	#form-desktop {
+  		display: none;
+  	}
+  	
+  	footer {
+  		width: 100%;
+  		height: 82px;
+  		background-color: #FFF;
+  		color: #a5a5a5;
+  		font-size: 13px;
+  		text-align: center;
+  		position: relative;
+  	}
+  	
+  	#footer-links {
+  		margin-top: 30px;
+  	}
+  	
+  	#footer-links a {
+  		color: #a5a5a5;
+  		text-decoration: none;
+  	}
+  	
+  	#copyright {
+  		display: none;
+  	}
+  	
+  	#copyright-mobile {
+  		margin-top: 20px;
+  	}
+  	
+  	#copyright-mobile a.twitter-link {
+  		width: 20px;
+  		height: 20px;
+  		display: inline-block;
+  		background: url(/img/twitter-logo.png) no-repeat;
+  		background-size: 20px 20px;
+  	}
+  	
+  	#copyright-mobile a.facebook-link {
+  		width: 20px;
+  		height: 20px;
+  		display: inline-block;
+  		background: url(/img/facebook-logo.png) no-repeat;
+  		background-size: 20px 20px;
+  	}
+  	
+  	#social-links {
+  		display: none;
+  	}
+  
+  	/* for high resolution display */
+
+	@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	
+		.logo {
+			background: url(/img/logo-mobile@2x.png) no-repeat;
+		    width: 200px;
+			height: 55px;
+			background-size: 200px 55px;
+		}
+		
+		.burger-menu {
+			background: url(/img/burger-menu-mobile@2x.png) no-repeat;
+		    width: 55px;
+			height: 55px;
+			background-size: 55px 55px;
+		}
+		
+		.account-menu {
+			background: url(/img/account-menu-mobile@2x.png) no-repeat;
+		    width: 55px;
+			height: 55px;
+			background-size: 55px 55px;
+		}
+		
+		#copyright a.twitter-link {
+	  		background: url(/img/twitter-logo@2x.png) no-repeat;
+	  		width: 20px;
+	  		height: 20px;
+	  		background-size: 20px 20px;
+	  	}
+	  	
+	  	#copyright a.facebook-link {
+	  		background: url(/img/facebook-logo@2x.png) no-repeat;
+	  		width: 20px;
+	  		height: 20px;
+	  		background-size: 20px 20px;
+	  	}
+	
+	}
+}
+
+/*
+ * Landing Page Stylesheet
+ *
+ */
+ 
+body.lp .burger-menu, body.lp .account-menu, body.lp .menu-links, body.lp #footer-links {
+	display: none;
+}
+
+body.lp footer {
+    height: 45px;
+}
+
+body.lp #footer-content {
+	height: 45px;
+	width: 300px;
+	position: relative;
+	margin: auto;
+}
+
+body.lp #copyright {
+	position: absolute;
+	left: 45px;
+	right: 0;
+}
+
+body.lp #social-links {
+	position: absolute;
+	left: 0;
+}
+
+body.lp #slider #video {
+	position: absolute;
+    height: 100px;
+    width: 500px;
+    bottom: 39px;
+    height: 100%;
+    width: 100%;
+   	background: url(/img/slider-lp.png) bottom center no-repeat;
+   	background-size: 100% auto;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+	body.lp #slider #video {
+	   	background: url(/img/slider-lp@2x.png) bottom center no-repeat;
+	}
+}
+
+body.lp #form-desktop #invitation {
+	background: url(/img/form-stroke-invitation.png) no-repeat;
+	width: 420px;
+	height: 344px;
+	background-size: 420px 344px;
+	position: relative;
+}
+
+body.lp #form-desktop #invitation form {
+	position: absolute;
+	left: 42px;
+	top: 42px;
+}
+
+body.lp #form-desktop #invitation li {
+	position: relative;
+    width: 327px;
+    height: 25px;
+    margin-bottom: 19px;
+}
+
+body.lp #form-desktop #invitation label {
+	font-size: 14px;
+	position: absolute;
+    top: 4px;
+}
+
+body.lp #form-desktop #invitation input {
+	position: absolute;
+	right: 0;
+	width: 210px;
+    height: 23px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-width: 0px;
+	border: none;
+	border-radius: 4px;
+	color: #4d71fe;
+	font-size: 14px;
+	background-color: white;
+}
+
+body.lp #invitation p.error {
+	display: none;
+	position: relative;
+    left: 100px;
+    top: 35px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    color: #ffac9d;
+}
+
+body.lp #form-desktop #invitation input[type=submit] {
+	position: relative;
+	width: 175px;
+	height: 40px;
+	background: url(/img/cta-invitation-stroke.png) no-repeat;
+	background-size: 175px 40px;
+	border: none;
+	left: 150px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+    cursor: pointer;
+}
+
+body #thankyoubg {
+	width: 100%;
+	height: 100%;
+	background: url(/img/invitation-thankyou-bg.png);
+	position: absolute;
+	z-index: 1;
+}
+
+body #thankyoucontent {
+	width: 438px;
+	height: 443px;
+	background: url(/img/invitation-thankyou-content.png) no-repeat;
+	background-size: 438px 443px;	
+	position: absolute;
+	margin-left: -219px;	
+	margin-top: -222px;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	color: #0d024c;
+	font-family: 'Roboto', sans-serif;	
+	z-index: 2;
+}
+
+body #thankyoucontent h2 {
+	padding-top: 180px;
+	font-size: 39px;
+	font-weight: 100;
+}
+
+body #thankyoucontent h3 {
+	margin-top: 35px;
+    font-size: 14px;
+	font-weight: 700;
+}
+
+body #thankyoucontent p.desktop {
+	margin-top: 5px;
+    font-size: 14px;
+    line-height: 17px;
+}
+
+body #thankyoucontent p.mobile {
+	display: none;
+}
+
+body #thankyoucontent .close {
+	width: 30px;
+	height: 30px;
+	right: 10px;
+    position: absolute;
+    top: 125px;
+    background: url(/img/popin-close.png) no-repeat;
+    background-size: 30px 30px;
+    cursor: pointer;
+}
+
+/*
+ * iPad Adaptation Invitation Stylesheet
+ *
+ */
+
+@media screen and (min-width: 768px) and (max-width: 1080px) {
+	body.lp #slider #title h1 span {
+		font-size: 13px;
+	}	
+	
+	body.lp #slider #title h1 {
+    	line-height: 190%;
+	}
+}
+
+/*
+ * Mobile Invitation Stylesheet
+ *
+ */
+ 
+@media screen and (max-width: 767px) {
+	body.lp #form-content {
+	    width: 316px;
+	    height: 333px;
+	    background: url(/img/form-stroke-invitation-mobile.png) no-repeat;
+	    background-size: 316px 333px;
+	    margin: 25px auto;
+	}
+	
+	body.lp #form-desktop {
+	    display: block;
+	}
+	
+	body.lp #form-desktop #invitation {
+    	background: none; 
+    	width: 320px;
+	}
+	
+	body.lp #form-desktop #invitation form {
+	    position: absolute;
+	    left: 30px;
+	    top: 22px;
+	}
+	
+	body.lp #form-desktop #invitation li {
+    	width: 247px;
+    	margin-bottom: 34px;
+	}
+	
+	body.lp #form-desktop #invitation li.first-name, body.lp #form-desktop #invitation li.family-name {
+    	width: 100px;
+    	
+	}
+	
+	body.lp #form-desktop #invitation li.family-name {
+    	right: 0px;
+    	top: 0px;
+    	position: absolute;
+    	width: 118px;
+	}	
+	
+	body.lp #form-desktop #invitation li.first-name input, body.lp #form-desktop #invitation li.family-name input {
+		width: 98px;
+	}
+	
+	body.lp #form-desktop #invitation li.first-name input {
+    	left: 0px;
+	}	
+	
+	body.lp #form-desktop #invitation input {
+		top: 22px;
+    	width: 226px;
+	}
+	
+	body.lp #form-desktop #invitation input[type=submit] {
+		left: 72px;
+		top: 0;
+	}
+	
+	body.lp #invitation p.error {
+	    left: 0;
+	    top: 56px;
+	    width: 250px;
+	}
+	
+	body.lp #invitation li.family-name p.error {
+    	left: -129px;
+	}
+	
+	body.lp #form-desktop #invitation label {
+    	font-size: 13px;
+    	color: white;
+	}
+	
+	body #thankyoucontent {
+		width: 310px;
+		height: 372px;
+		background: url(/img/invitation-thankyou-content-mobile.png) no-repeat;
+		background-size: 310px 372px;	
+		position: absolute;
+		margin-left: -155px;	
+		margin-top: -286px;
+		top: 50%;
+		left: 50%;
+	}
+		
+	body #thankyoucontent h2 {
+		padding-top: 130px;
+		font-size: 34px;
+		font-weight: 100;
+	}
+	
+	body #thankyoucontent h3 {
+		margin-top: 20px;
+	    font-size: 16px;
+		font-weight: 700;
+	}
+	
+	body #thankyoucontent p.mobile {
+		display: block;
+		margin-top: 5px;
+	    font-size: 16px;
+	    line-height: 19px;
+	}
+	
+	body #thankyoucontent p.desktop {
+		display: none;
+	}
+	
+	body #thankyoucontent .close {
+		width: 45px;
+		height: 45px;
+		right: 5px;
+	    top: 100px;
+	    background: url(/img/popin-close-mobile.png) no-repeat;
+	    background-size: 45px 45px;
+	}
+}
+
+/*
+ * Contact Us Stylesheet
+ *
+ */
+
+body.contact #contactbg {
+	width: 100%;
+	height: 100%;
+	background: url(/img/popin-bg.png);
+	position: absolute;
+	z-index: 1;
+}
+
+body.contact #contactcontent {
+	width: 638px;
+	height: 416px;
+	background: url(/img/contact-content.png) no-repeat;
+	background-size: 638px 416px;	
+	position: absolute;
+	margin-left: -319px;	
+	margin-top: -208px;
+	top: 50%;
+	left: 50%;
+	text-align: center;
+	color: #0d024c;
+	font-family: 'Roboto', sans-serif;	
+	z-index: 2;
+}
+
+body.contact #contactcontent h2 {
+	padding-top: 60px;
+	font-size: 39px;
+	font-weight: 100;
+}
+
+body.contact #contactcontent .close {
+	width: 30px;
+	height: 30px;
+	right: 15px;
+    position: absolute;
+    top: 25px;
+    background: url(/img/popin-close.png) no-repeat;
+    background-size: 30px 30px;
+    cursor: pointer;
+}
+
+body.contact #contactcontent input[type=submit] {
+	position: absolute;
+	width: 82px;
+	height: 40px;
+	background: url(/img/contact-cta.png) no-repeat;
+	background-size: 82px 40px;
+	border: none;
+	top: 311px;
+    right: 64px;
+	color: white;
+	font-family: 'Roboto', sans-serif;
+	font-size: 14px;
+    cursor: pointer;
+}
+
+body.contact #contactcontent li {
+	position: absolute;	
+    top: 138px;
+}
+
+body.contact #contactcontent li.first-name, body.contact #contactcontent li.subject, body.contact #contactcontent li.message {
+	left: 65px;
+}
+
+body.contact #contactcontent li.subject {
+	top: 182px;
+}
+
+body.contact #contactcontent li.message {
+	top: 227px;
+}
+
+body.contact #contactcontent li.last-name {
+	left: 239px;
+}
+
+body.contact #contactcontent li.email {
+	left: 414px;
+}
+
+body.contact #contactcontent li input,  body.contact #contactcontent li textarea {
+    padding: 0 12px;
+    font-size: 13px;
+    color: #8e8e8e;
+    border: 1px solid #0d024c;
+}
+
+body.contact #contactcontent li input.active, body.contact #contactcontent li textarea.active {
+    color: #0d024c;
+}
+
+body.contact #contactcontent li.subject input {
+	height: 29px;
+	width: 483px;
+}
+
+body.contact #contactcontent li.message textarea {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 49px;
+	width: 483px;
+}
+
+body.contact #contactcontent li.first-name input, body.contact #contactcontent li.last-name input, body.contact #contactcontent li.email input {
+	height: 28px;
+	width: 134px;  
+}
+
+body.contact #contactcontent p.error {
+	display: none;
+	position: absolute;
+    left: 0px;
+    top: 38px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    font-weight: 100;
+    color: #ffac9d;
+    width: 500px;
+    text-align: left;
+}
+
+body.contact #contactcontent li.email p.error {
+	left: -349px;	
+}
+
+body.contact #contactcontent li.last-name p.error {
+	left: -174px;	
+}
+
+body.contact #contactcontent li.message p.error {
+	top: 80px;	
+}
+
+/*
+ * Mobile Contact Stylesheet
+ *
+ */
+ 
+@media screen and (max-width: 767px) {
+	body.contact #contactcontent {
+		width: 310px;
+		height: 462px;
+		background: url(/img/contact-content-mobile.png) no-repeat;
+		background-size: 310px 462px;	
+		position: absolute;
+		margin-left: -155px;	
+		margin-top: 0;
+		top: 5%;
+	}
+	
+	body.contact #contactcontent .close {
+		width: 45px;
+		height: 45px;
+		right: 5px;
+	    top: 5px;
+	    background: url(/img/popin-close-mobile.png) no-repeat;
+	    background-size: 45px 45px;
+	}
+	
+	body.contact #contactcontent h2 {
+		padding-top: 37px;
+    	font-size: 33px;
+	}
+	
+	body.contact #contactcontent li {
+		left: 32px !important;
+	}
+	
+	body.contact #contactcontent li.first-name {
+	    top: 100px !important;
+	}
+	
+	body.contact #contactcontent li.last-name {
+	    top: 145px !important;
+	}
+	
+	body.contact #contactcontent li.email {
+	    top: 190px !important;
+	}
+	
+	body.contact #contactcontent li.subject {
+	    top: 235px !important;
+	}
+	
+	body.contact #contactcontent li.message {
+	    top: 278px !important;
+	}
+	
+	body.contact #contactcontent li.message textarea {
+	    height: 63px;
+	}
+	
+	body.contact #contactcontent input[type=text], body.contact #contactcontent input[type=email], body.contact #contactcontent li.message textarea {
+		width: 220px !important;
+		background-color: white;
+	}
+	
+	body.contact #contactcontent input[type=submit] {
+		top: 377px;
+    	right: 33px;
+	}
+	
+	body.contact #contactcontent li p.error {
+		left: 0 !important;
+	}
+	
+	body.contact #contactcontent li.message p.error {
+	    top: 92px;
+	}
+}
+
+/*
+ * Gemmie Stylesheet
+ *
+ */
+ 
+body.gemmie header, body.gemmie footer {
+	display: none;
+}
+
+body.gemmie table, body.gemmie table th, body.gemmie table td {
+	border: 1px solid black;
+	font-family: 'Roboto', sans-serif;
+	font-size: 17px;
+}
+
+body.gemmie table td {
+	border: 1px solid black;	
+	font-size: 13px;
+}

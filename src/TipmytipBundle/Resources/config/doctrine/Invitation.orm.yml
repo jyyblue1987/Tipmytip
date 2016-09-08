@@ -1,0 +1,30 @@
+# src/TipmytipBundle/Resources/config/doctrine/Invitation.orm.yml
+TipmytipBundle\Entity\Invitation:
+  type: entity
+  table: Invitation
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    date:
+      type: string
+      length: 255
+    first_name:
+      type: string
+      length: 255
+    last_name:
+      type: string
+      length: 255
+    email:
+      type: string
+      length: 255
+    country:
+      type: string
+      length: 255
+    city:
+      type: string
+      length: 255
+    ip_address:
+      type: string
+      length: 255

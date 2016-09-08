@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Cashin</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cashin.id }}</td>
+            </tr>
+            <tr>
+                <th>Amount</th>
+                <td>{{ cashin.amount }}</td>
+            </tr>
+            <tr>
+                <th>Currency</th>
+                <td>{{ cashin.currency }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{% if cashin.date %}{{ cashin.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('other_stuff') }}">Back to other stuff</a>
+        </li>
+    </ul>
+{% endblock %}

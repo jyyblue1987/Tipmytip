@@ -1,0 +1,28 @@
+# src/TipmytipBundle/Resources/config/doctrine/Question.orm.yml
+TipmytipBundle\Entity\Question:
+  type: entity
+  table: question
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    date:
+      type: datetime
+    question_text:
+      type: string
+      length: 255
+    question_date:
+      type: string
+      length: 255
+    inquirer_delete:
+      type: string
+      length: 255
+  manyToOne:
+    location:
+      targetEntity: Location
+      inversedBy: questions
+      joinColumn:
+        name: location_id
+        referencedColumnName: id
+        onDelete: CASCADE

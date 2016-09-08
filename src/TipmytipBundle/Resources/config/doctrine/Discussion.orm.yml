@@ -1,0 +1,15 @@
+# src/TipmytipBundle/Resources/config/doctrine/Discussion.orm.yml
+TipmytipBundle\Entity\Discussion:
+  type: entity
+  table: discussion
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    date:
+      type: datetime
+    inquirer_delete:
+      type: boolean
+    adviser_delete:
+      type: boolean

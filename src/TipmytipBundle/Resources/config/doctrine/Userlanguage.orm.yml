@@ -1,0 +1,23 @@
+# src/TipmytipBundle/Resources/config/doctrine/Userlanguage.orm.yml
+TipmytipBundle\Entity\Userlanguage:
+  type: entity
+  table: userlanguage
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  manyToOne:
+    user:
+      targetEntity: User
+      inversedBy: languages
+      joinColumn:
+        name: user_id
+        referencedColumnName: id
+        onDelete: CASCADE
+    language:
+      targetEntity: Language
+      inversedBy: users
+      joinColumn:
+        name: language_id
+        referencedColumnName: id
+        onDelete: CASCADE
