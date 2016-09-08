@@ -2,11 +2,16 @@
 parameters:
 #
 # Server Parameters
-    database_host: tipmytipfidbsb.mysql.db
-    database_port: null
+#    database_host: tipmytipfidbsb.mysql.db
+#    database_port: null
+#    database_name: tipmytipfidbsb
+#    database_user: tipmytipfidbsb
+#    database_password: Sandbox123
+    database_host: localhost
+    database_port: 3306
     database_name: tipmytipfidbsb
-    database_user: tipmytipfidbsb
-    database_password: Sandbox123
+    database_user: root
+    database_password:
     secret: 795bf9448a38513287f1eeb1be1f5d9cc5805bc7
     mailer_transport: smtp
     mailer_auth_mode:  login

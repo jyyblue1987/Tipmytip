@@ -7,3 +7,79 @@
 body.signup h1 {
 	padding-top: 150px;	 
 }
+
+.signup_content {
+	margin-top: 100px;
+	width: 100%;
+	/* height: 100%; */
+	position: absolute;
+	margin-bottom: 50px;
+}
+
+.panel-content {
+	margin-left: 100px;
+	margin-right: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+body.page footer {
+	height: 45px;
+}
+
+.flexbox {
+	display: -webkit-box; /* Safari */
+	display: -moz-box; /* Firefox 21- */
+	display: -ms-flexbox; /* IE 10+ */
+	display: -webkit-flex; /* Chrome */
+	display: flex; /* Standard (Firefox 22+) */
+}
+
+.wrap {
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.nowrap {
+	-webkit-flex-wrap: nowrap;
+	flex-wrap: nowrap;
+}
+.wrap-reverse {
+	-webkit-flex-wrap: wrap-reverse;
+	flex-wrap: wrap-reverse;
+}
+
+.gender_container {
+	margin-left: 30px;
+	flex-direction: row;
+	align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+	.gender_container {
+		flex-direction: column;
+		align-items: flex-start;
+		justify-content: center;
+	}
+
+	.signup_content {
+		width: 90%;
+		margin-left: 10%;
+		margin-right: 10%;
+	}
+
+	.gender_item {
+		margin-top: 20px;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+	.gender_item {
+		margin-left: 20px;
+	}
+}
+
+
+
+

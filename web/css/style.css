@@ -634,7 +634,8 @@ header, #menu, #menu-mobile, footer {
   		color: #a5a5a5;
   		font-size: 13px;
   		text-align: center;
-  		position: relative;
+  		position: fixed;
+		bottom: 0;
   	}
   	
   	#footer-links {

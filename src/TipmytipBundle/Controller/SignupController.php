@@ -17,8 +17,9 @@ use TipmytipBundle\Form\UserType;
 class SignupController extends Controller
 {
 
-    public function indexAction()
+    public function indexAction(Request $request)
     {
+
         return $this->render('signup/index.html.twig', array(
             
         ));

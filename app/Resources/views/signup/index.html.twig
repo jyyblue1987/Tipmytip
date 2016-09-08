@@ -2,9 +2,48 @@
 
 {% block page %}signup{% endblock %}
 {% block title %}tipmytip • Sign up{% endblock %}
-{% block stylesheets %}<link rel="stylesheet" href="/css/signup.css" type="text/css" />{% endblock %}
+{% block stylesheets %}
+    <link rel="stylesheet" href="/css/signup.css" type="text/css" />
+    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="css/app.css" type="text/css" />
+    <link rel="stylesheet" href="font-awesome-4.6.1/css/font-awesome.min.css" type="text/css" />
+{% endblock %}
 {% block scripts %}<script src="/js/signup.js"></script>{% endblock %}
 
 {% block body %}
-    <h1>Sign up page - Have fun Hai!</h1>
+<div class="signup_content">
+    <div class="col-sm-offset-1" style="margin-top: 100px">
+            <span style="font-size: 25px; color: #0d024c">Sign Up</span>
+            <button class="btn m-b-xs btn-default btn-rounded" style="margin-left: 5%">Sign up with Facebook</button>
+    </div>
+
+    <div class="col-sm-offset-1 flexbox" style="margin-top: 30px">
+        <div>
+            <button class="btn btn-rounded btn-llg btn-icon btn-default" style="font-size: 40px"><i class="fa fa-user"></i></button>
+        </div>
+        <div class="flexbox gender_container">
+                <label class="i-checks i-checks-sm">
+                    <input type="radio" name="a">
+                    <i></i>
+                    Main
+                </label>
+
+                <label class="i-checks i-checks-sm gender_item">
+                    <input type="radio" name="a">
+                    <i></i>
+                    Woman
+                </label>
+
+                <div>
+                    <label class="i-checks i-checks-sm gender_item">
+                        <input type="radio" name="a">
+                        <i></i>
+                    </label>
+                    <input type="text" class="form-control" style="display: inline; width: 200px" placeholder="I identify my gender as...">
+                </div>
+        </div>
+    </div>
+
+
+</div>
 {% endblock %}
