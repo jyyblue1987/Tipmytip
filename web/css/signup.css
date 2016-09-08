@@ -64,19 +64,32 @@ body.page footer {
 
 	.signup_content {
 		width: 90%;
-		margin-left: 10%;
-		margin-right: 10%;
+		margin-left: 5%;
+		margin-right: 5%;
 	}
 
 	.gender_item {
 		margin-top: 20px;
 	}
 
+	.inline-input {
+		margin-top: 15px;
+	}
+
+
+
+}
+
+.mobile-center {
+	color: #0d024c;
 }
 
 @media screen and (min-width: 768px) {
 	.gender_item {
 		margin-left: 20px;
+	}
+	.mobile-center {
+		text-align: center;
 	}
 }
 
