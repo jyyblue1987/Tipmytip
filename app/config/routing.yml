@@ -2,6 +2,14 @@ signup:
     path:     /signup
     defaults: { _controller: TipmytipBundle:Signup:index }
 
+location:
+    path:     /location
+    defaults: { _controller: TipmytipBundle:Signup:location }
+
+city:
+    path:     /city/{country_id}
+    defaults: { _controller: TipmytipBundle:Signup:city }
+
 landing_page:
     path:     /
     defaults: { _controller: TipmytipBundle:Page:landingpage }

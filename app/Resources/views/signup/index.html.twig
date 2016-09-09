@@ -22,7 +22,7 @@
 <div class="signup_content" ng-app="app" ng-controller="SignUpController">
     <div class="col-sm-offset-1" style="margin-top: 100px">
             <span style="font-size: 25px; color: #0d024c">Sign Up</span>
-            <button class="btn-xs btn-default btn-rounded" style="margin-left: 5%">Sign up with Facebook</button>
+            <button class="btn-sm btn-default btn-rounded" style="margin-left: 5%">Sign up with Facebook</button>
     </div>
 
     <div class="col-sm-offset-1 flexbox" style="margin-top: 30px">
@@ -93,7 +93,7 @@
                     </div>
                     <div class="col-sm-6 inline-input">
                         <select class='form-control' ng-model="user.national_id" placeholder="Nationality"
-                                ng-options="value.id as value.carrier for (key, value) in carriers">
+                                ng-options="value.id as value.name for (key, value) in countrylist">
                         </select>
                     </div>
                 </div>
@@ -105,13 +105,13 @@
 
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <select name="nationality" placeholder="Nationality" class="form-control">
-                            <option>option 1</option>
+                        <select class='form-control' ng-model="user.country_id" placeholder="Nationality"
+                                ng-options="value.id as value.name for (key, value) in countrylist" ng-change="onSelectCountry(user.country_id)">
                         </select>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <select name="nationality" placeholder="Nationality" class="form-control">
-                            <option>option 1</option>
+                        <select class='form-control' ng-model="user.city_id" placeholder="City"
+                                ng-options="value.id as value.name for (key, value) in citylist" ng-change="onSelectCountry(user.country_id)">
                         </select>
                     </div>
                 </div>
