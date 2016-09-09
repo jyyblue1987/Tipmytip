@@ -18,8 +18,17 @@ app.controller('SignUpController', function($scope, $http) {
                 $scope.countrylist = response.data.countrylist;
                 $scope.user.national_id = $scope.countrylist[0].id;
                 $scope.user.country_id = $scope.countrylist[0].id;
+                $scope.user.country_id1 = $scope.countrylist[0].id;
+                $scope.user.country_id2 = $scope.countrylist[0].id;
+                $scope.user.country_id3 = $scope.countrylist[0].id;
+                $scope.user.country_id4 = $scope.countrylist[0].id;
 
-                $scope.onSelectCountry($scope.user.country_id);
+
+                $scope.onSelectCountry($scope.user.country_id, 0);
+                $scope.onSelectCountry($scope.user.country_id, 1);
+                $scope.onSelectCountry($scope.user.country_id, 2);
+                $scope.onSelectCountry($scope.user.country_id, 3);
+                $scope.onSelectCountry($scope.user.country_id, 4);
             }).catch(function(response) {
             })
             .finally(function() {
@@ -28,11 +37,32 @@ app.controller('SignUpController', function($scope, $http) {
 
     initData();
 
-    $scope.onSelectCountry = function(country_id) {
+    $scope.onSelectCountry = function(country_id, num) {
         $http.get('/city/' + country_id)
             .then(function(response) {
-                $scope.citylist = response.data.citylist;
-                $scope.user.city_id = $scope.citylist[0].id;
+                switch (num) {
+                    case 0:
+                        $scope.citylist0 = response.data.citylist;
+                        $scope.user.city_id = $scope.citylist0[0].id;
+                        break;
+                    case 1:
+                        $scope.citylist1 = response.data.citylist;
+                        $scope.user.city_id1 = $scope.citylist1[0].id;
+                        break;
+                    case 2:
+                        $scope.citylist2 = response.data.citylist;
+                        $scope.user.city_id2 = $scope.citylist2[0].id;
+                        break;
+                    case 3:
+                        $scope.citylist3 = response.data.citylist;
+                        $scope.user.city_id3 = $scope.citylist3[0].id;
+                        break;
+                    case 4:
+                        $scope.citylist4 = response.data.citylist;
+                        $scope.user.city_id4 = $scope.citylist4[0].id;
+                        break;
+                }
+
              }).catch(function(response) {
             })
             .finally(function() {
