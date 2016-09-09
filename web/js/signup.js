@@ -1,41 +1,27 @@
-/*
- * Tipmytip Signup Script v1.0
- * Copyright © Tipmytip 2016
- *
- */
+app = angular.module('app',    [
+        'ui.bootstrap',
+    ]);
 
-$( document ).ready(function() {
+app.controller('SignUpController', function($scope, $http) {
+    $scope.dateOptions = {
+        dateDisabled: disabled,
+        formatYear: 'yy',
+        maxDate: new Date(2020, 5, 22),
+        startingDay: 1
+    };
 
-    $('.formbox').validate({
-        rules: {
-            email: {
-                required: true
-            },
-            password: {
-                required: true
-            }
-        },
-        highlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
-            $(id_attr).removeClass('glyphicon-ok').addClass('glyphicon-remove');
-        },
-        unhighlight: function(element) {
-            var id_attr = "#" + $( element ).attr("id") + "1";
-            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
-            $(id_attr).removeClass('glyphicon-remove').addClass('glyphicon-ok');
-        },
-        errorElement: 'span',
-        errorClass: 'help-block',
-        errorPlacement: function(error, element) {
-            if(element.length) {
-                error.insertAfter(element);
-            } else {
-                error.insertAfter(element);
-            }
-        }
-    });
+    $scope.popup2 = {
+        opened: false
+    };
+    $scope.open2 = function() {
+        $scope.popup2.opened = true;
+    };
 
-    $('#date_of_birth').datepicker();
-
+    // Disable weekend selection
+    function disabled(data) {
+        //var date = data.date,
+        //    mode = data.mode;
+        //return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
+        return false;
+    }
 });
