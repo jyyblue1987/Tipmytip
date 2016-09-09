@@ -10,6 +10,10 @@ city:
     path:     /city/{country_id}
     defaults: { _controller: TipmytipBundle:Signup:city }
 
+createaccount:
+    path:     /createaccount
+    defaults: { _controller: TipmytipBundle:Signup:create }
+
 landing_page:
     path:     /
     defaults: { _controller: TipmytipBundle:Page:landingpage }

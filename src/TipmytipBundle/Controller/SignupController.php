@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Doctrine\ORM\Query\ResultSetMapping;
+use TipmytipBundle\Entity\User;
 
 /**
  * Signup controller.
@@ -54,6 +55,32 @@ class SignupController extends Controller
         $ret['citylist'] = $citylist;
 
         return $this->json($ret);
+    }
+
+    public function createAction(Request $request) {
+        $input = json_decode($request->getContent(), true);
+
+        $user = new User();
+
+        $user->setEmail($input['email']);
+        $user->setPassword($input['password']);
+        $user->setFirstName($input['first_name']);
+        $user->setLastName($input['last_name']);
+        $user->setBirthdate($input['date_of_birth']);
+        $user->setGender($input['gender']);
+        $user->setNationality($input['national_id']);
+        $user->setCountry($input['country_id']);
+//        $user->setLocation(1);
+
+        $em = $this->getDoctrine()->getManager();
+
+        // tells Doctrine you want to (eventually) save the Product (no queries yet)
+        $em->persist($user);
+
+        // actually executes the queries (i.e. the INSERT query)
+        $em->flush();
+
+        return $this->json($user);
     }
 
 }

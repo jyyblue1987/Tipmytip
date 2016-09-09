@@ -6,6 +6,7 @@ app.controller('SignUpController', function($scope, $http) {
      function initData() {
 
         $scope.user = {};
+         $scope.user.gender = "Male";
         $scope.dateOptions = {
             dateDisabled: disabled,
             formatYear: 'yy',
@@ -81,5 +82,23 @@ app.controller('SignUpController', function($scope, $http) {
         return false;
     }
 
+    $scope.submit = function() {
+        console.log($scope.user);
+
+        $http({
+            method: 'POST',
+            url: '/createaccount',
+            data: $scope.user,
+            headers: {'Content-Type': 'application/json; charset=utf-8'}
+        })
+            .then(function(response) {
+                console.log(response.data);
+            }).catch(function(response) {
+                console.error('Gists error', response.status, response.data);
+            })
+            .finally(function() {
+                $scope.isLoading = false;
+            });
+    }
 
 });

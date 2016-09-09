@@ -31,28 +31,28 @@
         </div>
         <div class="flexbox gender_container">
                 <label class="i-checks i-checks-sm">
-                    <input type="radio" name="a">
+                    <input type="radio" ng-model="user.gender" value="Male">
                     <i></i>
                     Main
                 </label>
 
                 <label class="i-checks i-checks-sm gender_item">
-                    <input type="radio" name="a">
+                    <input type="radio" ng-model="user.gender" value="Female">
                     <i></i>
                     Woman
                 </label>
 
-                <div>
+                <div class="radio">
                     <label class="i-checks i-checks-sm gender_item">
-                        <input type="radio" name="a">
+                        <input type="radio" ng-model="user.gender" value="Other">
                         <i></i>
                     </label>
-                    <input type="text" class="form-control" style="display: inline; width: 200px" placeholder="I identify my gender as...">
+                    <input type="text" class="form-control" ng-model="user.custom_gender" style="display: inline; width: 200px" placeholder="I identify my gender as...">
                 </div>
         </div>
     </div>
 
-    <form name="forma" class="form-horizontal form-validation" style="margin-top: 30px">
+    <form ng-submit="submit()" class="form-horizontal form-validation" style="margin-top: 30px">
         <div class="formbox form-horizontal">
             <div class="col-lg-6">
                <div class="form-group" style="margin-top: 30px">
