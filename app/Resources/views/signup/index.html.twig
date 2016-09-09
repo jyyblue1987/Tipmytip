@@ -85,15 +85,15 @@
                 <div class="form-group">
                     <div class="col-sm-6">
                         <div class="input-group">
-                          <input type="text" class="form-control" uib-datepicker-popup ng-model="dt" is-open="popup2.opened" datepicker-options="dateOptions" ng-required="true" close-text="Close" />
+                          <input type="text" class="form-control" uib-datepicker-popup="dd/MM/yyyy" ng-model="user.date_of_birth" is-open="opened" datepicker-options="dateOptions" placeholder="Date of Birth(dd/mm/yyyy)" ng-required="true" close-text="Close" />
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-default" ng-click="open2()"><i class="glyphicon glyphicon-calendar"></i></button>
+                            <button type="button" class="btn btn-default" ng-click="open()"><i class="glyphicon glyphicon-calendar"></i></button>
                           </span>
                         </div>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <select name="nationality" placeholder="Nationality" class="form-control">
-                            <option>option 1</option>
+                        <select class='form-control' ng-model="user.national_id" placeholder="Nationality"
+                                ng-options="value.id as value.carrier for (key, value) in carriers">
                         </select>
                     </div>
                 </div>
@@ -182,7 +182,7 @@
                         </span>
                     </div>
                     <div class="col-sm-4">
-                        <button type="submit" class="btn-xs btn-default btn-rounded">Create Account</button>
+                        <button type="submit" class="btn-sm btn-default btn-rounded">Create Account</button>
                     </div>
                 </div>
 

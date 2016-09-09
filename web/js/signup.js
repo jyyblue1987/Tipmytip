@@ -10,11 +10,8 @@ app.controller('SignUpController', function($scope, $http) {
         startingDay: 1
     };
 
-    $scope.popup2 = {
-        opened: false
-    };
-    $scope.open2 = function() {
-        $scope.popup2.opened = true;
+    $scope.open = function() {
+        $scope.opened = true;
     };
 
     // Disable weekend selection
