@@ -55,6 +55,10 @@ body.page footer {
 	align-items: center;
 }
 
+.copyright_hint {
+	text-align: right;
+}
+
 @media screen and (max-width: 768px) {
 	.gender_container {
 		flex-direction: column;
@@ -67,6 +71,7 @@ body.page footer {
 		width: 90%;
 		margin-left: 5%;
 		margin-right: 5%;
+		margin-bottom: 80px;
 	}
 
 	.gender_item {
@@ -77,8 +82,10 @@ body.page footer {
 		margin-top: 15px;
 	}
 
-
-
+	.copyright_hint {
+		text-align: left;
+		margin-bottom: 10px;
+	}
 }
 
 .mobile-center {
