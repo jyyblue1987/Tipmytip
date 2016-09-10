@@ -60,27 +60,16 @@ class SignupController extends Controller
     public function createAction(Request $request) {
         $input = json_decode($request->getContent(), true);
 
-        $user = new User();
-
-        $user->setEmail($input['email']);
-        $user->setPassword($input['password']);
-        $user->setFirstName($input['first_name']);
-        $user->setLastName($input['last_name']);
-        $user->setBirthdate($input['date_of_birth']);
-        $user->setGender($input['gender']);
-        $user->setNationality($input['national_id']);
-        $user->setCountry($input['country_id']);
-//        $user->setLocation(1);
+        $sql = sprintf("Insert into user (email, password, first_name, last_name, birthdate, gender, nationality, country, admin_account, is_active, location_id)
+                                    values ('%s', '%s', '%s', '%s','%s', '%s', '%s','%s', '%s', '%s', '%s')",
+                $input['email'], $input['password'], $input['first_name'], $input['last_name'], $input['date_of_birth'], $input['gender'], $input['national_id'], $input['country_id'], 'admin', '1', $input['city_id']
+            );
 
         $em = $this->getDoctrine()->getManager();
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
 
-        // tells Doctrine you want to (eventually) save the Product (no queries yet)
-        $em->persist($user);
-
-        // actually executes the queries (i.e. the INSERT query)
-        $em->flush();
-
-        return $this->json($user);
+        return $this->json($input);
     }
 
 }
