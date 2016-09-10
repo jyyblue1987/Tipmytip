@@ -87,8 +87,22 @@ class SignupController extends Controller
         $stmt = $em->getConnection()->prepare($sql);
         $stmt->execute();
 
+        // get last inserted id
+        $id = $em->getConnection()->lastInsertId();
+
+        // Insert knowell location ids
+        $knowwell_ids = array($input['city_id1'], $input['city_id2'], $input['city_id3'], $input['city_id4']  );
+        for($i = 0; $i < count($knowwell_ids); $i++)
+        {
+            $sql = sprintf("Insert into knowswell (user_id, location_id) values ('%s', '%s')", $id, $knowwell_ids[$i]);
+
+            $stmt = $em->getConnection()->prepare($sql);
+            $stmt->execute();
+        }
+
         $ret['code'] = 200;
         $ret['message'] = 'Account has been created successfully';
+        $ret['id'] = $id;
 
         return $this->json($ret);
     }
