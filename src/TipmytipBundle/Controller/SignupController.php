@@ -60,16 +60,37 @@ class SignupController extends Controller
     public function createAction(Request $request) {
         $input = json_decode($request->getContent(), true);
 
-        $sql = sprintf("Insert into user (email, password, first_name, last_name, birthdate, gender, nationality, country, admin_account, is_active, location_id)
-                                    values ('%s', '%s', '%s', '%s','%s', '%s', '%s','%s', '%s', '%s', '%s')",
-                $input['email'], $input['password'], $input['first_name'], $input['last_name'], $input['date_of_birth'], $input['gender'], $input['national_id'], $input['country_id'], 'admin', '1', $input['city_id']
-            );
+        $ret = array();
 
         $em = $this->getDoctrine()->getManager();
+
+        $sql = sprintf("SELECT * FROM user where email = '%s'", $input['email']);
+
         $stmt = $em->getConnection()->prepare($sql);
         $stmt->execute();
 
-        return $this->json($input);
+        $datalist = $stmt->fetchAll();
+
+        if( $datalist )
+        {
+            $ret['code'] = 201;
+            $ret['message'] = 'Email is duplicated';
+
+            return $this->json($ret);
+        }
+
+        $sql = sprintf("Insert into user (email, password, first_name, last_name, birthdate, gender, nationality, country, admin_account, is_active, location_id)
+                                    values ('%s', '%s', '%s', '%s','%s', '%s', '%s','%s', '%s', '%s', '%s')",
+            $input['email'], $input['password'], $input['first_name'], $input['last_name'], $input['date_of_birth'], $input['gender'], $input['national_id'], $input['country_id'], 'admin', '1', $input['city_id']
+        );
+
+        $stmt = $em->getConnection()->prepare($sql);
+        $stmt->execute();
+
+        $ret['code'] = 200;
+        $ret['message'] = 'Account has been created successfully';
+
+        return $this->json($ret);
     }
 
 }

@@ -113,7 +113,11 @@ app.controller('SignUpController', function($scope, $http, toaster) {
             headers: {'Content-Type': 'application/json; charset=utf-8'}
         })
             .then(function(response) {
-                toaster.pop('success', 'Sign up Page', 'Account is created on successfully');
+                var data = response.data;
+                if( data.code == 200 )
+                    toaster.pop('success', 'Sign up Page', data.message);
+                else
+                    toaster.pop('error', 'Sign up Page', data.message);
                 console.log(response.data);
             }).catch(function(response) {
                 toaster.pop('error', 'Sign up Page', 'Account is fail to create');
