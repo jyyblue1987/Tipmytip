@@ -1,8 +1,8 @@
 app = angular.module('app',    [
-        'ui.bootstrap',
+        'ui.bootstrap', 'toaster'
     ]);
 
-app.controller('SignUpController', function($scope, $http) {
+app.controller('SignUpController', function($scope, $http, toaster) {
      function initData() {
 
         $scope.user = {};
@@ -76,24 +76,47 @@ app.controller('SignUpController', function($scope, $http) {
 
     // Disable weekend selection
     function disabled(data) {
-        //var date = data.date,
-        //    mode = data.mode;
-        //return mode === 'day' && (date.getDay() === 0 || date.getDay() === 6);
-        return false;
+        var date = data.date,
+            mode = data.mode;
+
+        var today = new Date();
+
+        return mode === 'day' && (date > today);
+        //return false;
     }
 
     $scope.submit = function() {
         console.log($scope.user);
 
+        var request = angular.copy($scope.user);
+
+        if( request.email != $scope.confirm_email )
+        {
+            toaster.pop('error', 'Validation Error', 'Email does not match');
+            return;
+        }
+
+        if( request.password != $scope.confirm_password )
+        {
+            toaster.pop('error', 'Validation Error', 'Password does not match');
+            return;
+        }
+
+        request.date_of_birth = moment(request.date_of_birth).format('dd/MM/yyyy');
+        if( request.gender == 'Other' && request.custom_gender)
+            request.gender = request.custom_gender;
+
         $http({
             method: 'POST',
             url: '/createaccount',
-            data: $scope.user,
+            data: request,
             headers: {'Content-Type': 'application/json; charset=utf-8'}
         })
             .then(function(response) {
+                toaster.pop('success', 'Sign up Page', 'Account is created on successfully');
                 console.log(response.data);
             }).catch(function(response) {
+                toaster.pop('error', 'Sign up Page', 'Account is fail to create');
                 console.error('Gists error', response.status, response.data);
             })
             .finally(function() {

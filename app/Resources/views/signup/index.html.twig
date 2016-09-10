@@ -3,23 +3,24 @@
 {% block page %}signup{% endblock %}
 {% block title %}tipmytip • Sign up{% endblock %}
 {% block stylesheets %}
+    <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css" type="text/css" />
+    <link rel="stylesheet" href="libs/font-awesome-4.6.1/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="libs/angularjs-toaster/toaster.css" type="text/css" />
     <link rel="stylesheet" href="/css/signup.css" type="text/css" />
-    <link rel="stylesheet" href="bootstrap/dist/css/bootstrap.css" type="text/css" />
     <link rel="stylesheet" href="css/app.css" type="text/css" />
-    <link rel="stylesheet" href="font-awesome-4.6.1/css/font-awesome.min.css" type="text/css" />
-    <link rel="stylesheet" href="bootstrap-datepicker/css/datepicker.css" type="text/css" />
 {% endblock %}
 {% block scripts %}
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-    <script src="bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="libs/angular.min.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <script src="libs/angularjs-toaster/toaster.js"></script>
+    <script src="libs/moment/moment.js"></script>
 
     <script src="/js/signup.js"></script>
 {% endblock %}
 
 {% block body %}
 <div class="signup_content" ng-app="app" ng-controller="SignUpController">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
     <div class="col-sm-offset-1" style="margin-top: 100px">
             <span style="font-size: 25px; color: #0d024c">Sign Up</span>
             <button class="btn-sm btn-default btn-rounded" style="margin-left: 5%">Sign up with Facebook</button>
