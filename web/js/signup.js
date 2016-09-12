@@ -4,8 +4,8 @@ app = angular.module('app',    [
 
 app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
      function initData() {
-         //ngFB.init({appId: '1165809443511301'});
-         ngFB.init({appId: '619623278194684'});
+         ngFB.init({appId: '1165809443511301'});
+         //ngFB.init({appId: '619623278194684'});
 
         $scope.user = {};
          $scope.user.gender = "Male";
@@ -79,11 +79,25 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
     $scope.signupFacebook = function() {
         ngFB.login({scope: 'email,public_profile,publish_actions'}).then(
             function(response) {
-
+                console.log(response.authResponse);
+                getFacebookProfile();
             },
             function(response, status) {
 
             });
+    }
+
+    function getFacebookProfile(){
+        ngFB.api({path: '/me',params: {fields: 'id,name,email,first_name,last_name,gender'}}).then(
+            function(user) {
+                $scope.user = user;
+                if( user.gender = 'male')
+                    $scope.user.gender = 'Male';
+                else if( user.gender = 'female')
+                    $scope.user.gender = 'Female';
+                $scope.confirm_email = user.email;
+            }
+        );
     }
     // Disable weekend selection
     function disabled(data) {
