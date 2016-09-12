@@ -81,7 +81,7 @@ class SignupController extends Controller
 
         $sql = sprintf("Insert into user (email, password, first_name, last_name, birthdate, gender, nationality, country, admin_account, is_active, location_id)
                                     values ('%s', '%s', '%s', '%s','%s', '%s', '%s','%s', '%s', '%s', '%s')",
-            $input['email'], $input['password'], $input['first_name'], $input['last_name'], $input['date_of_birth'], $input['gender'], $input['national_id'], $input['country_id'], 'admin', '1', $input['city_id']
+            $input['email'], $input['password'], $input['first_name'], $input['last_name'], $input['date_of_birth'], $input['gender'], $input['national'], $input['country'], 'admin', '1', $input['city_id']
         );
 
         $stmt = $em->getConnection()->prepare($sql);

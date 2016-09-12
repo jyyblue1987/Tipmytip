@@ -1,9 +1,11 @@
 app = angular.module('app',    [
-        'ui.bootstrap', 'toaster'
+        'ui.bootstrap', 'toaster', 'ngOpenFB',
     ]);
 
-app.controller('SignUpController', function($scope, $http, toaster) {
+app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
      function initData() {
+         //ngFB.init({appId: '1165809443511301'});
+         ngFB.init({appId: '619623278194684'});
 
         $scope.user = {};
          $scope.user.gender = "Male";
@@ -74,6 +76,15 @@ app.controller('SignUpController', function($scope, $http, toaster) {
         $scope.opened = true;
     };
 
+    $scope.signupFacebook = function() {
+        ngFB.login({scope: 'email,public_profile,publish_actions'}).then(
+            function(response) {
+
+            },
+            function(response, status) {
+
+            });
+    }
     // Disable weekend selection
     function disabled(data) {
         var date = data.date,
@@ -84,6 +95,22 @@ app.controller('SignUpController', function($scope, $http, toaster) {
         return mode === 'day' && (date > today);
         //return false;
     }
+
+    function getObjectFromArray(objarray, key, value) {
+        var ret = {};
+        ret.key = '';
+        for(var i = 0; i < objarray.length; i++)
+        {
+            if( objarray[i][key] == value )
+            {
+                ret = objarray[i];
+                break;
+            }
+        }
+
+        return ret;
+    }
+
 
     $scope.submit = function() {
         console.log($scope.user);
@@ -102,9 +129,13 @@ app.controller('SignUpController', function($scope, $http, toaster) {
             return;
         }
 
-        request.date_of_birth = moment(request.date_of_birth).format('dd/MM/yyyy');
+        request.date_of_birth = moment(request.date_of_birth).format('DD/MM/YYYY');
         if( request.gender == 'Other' && request.custom_gender)
             request.gender = request.custom_gender;
+
+
+        request.country = getObjectFromArray($scope.countrylist, 'id', request.country_id).name;
+        request.national = getObjectFromArray($scope.countrylist, 'id', request.national_id).name;
 
         $http({
             method: 'POST',
