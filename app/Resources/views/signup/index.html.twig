@@ -50,7 +50,7 @@
                         <input type="radio" ng-model="user.gender" value="Other">
                         <i></i>
                     </label>
-                    <input type="text" class="form-control" ng-model="user.custom_gender" style="display: inline; width: 180px" placeholder="I identify my gender as...">
+                    <input type="text" ng-disabled="user.gender != 'Other'" class="form-control" ng-model="user.custom_gender" style="display: inline; width: 180px" placeholder="I identify my gender as...">
                 </div>
         </div>
     </div>
