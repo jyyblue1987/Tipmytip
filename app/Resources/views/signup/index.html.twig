@@ -24,19 +24,21 @@
 <div class="signup_content" ng-app="app" ng-controller="SignUpController">
     <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
     <div class="col-sm-offset-1" style="margin-top: 100px">
-            <span style="font-size: 25px; color: #0d024c">Sign Up</span>
-            <button class="btn btn-sm btn-default btn-rounded" style="margin-left: 5%" ng-click="signupFacebook()">Sign up with Facebook</button>
+            <span style="font-size: 2em; color: #0d024c">Sign up</span>
+            <button class="btn btn-sm btn-default btn-rounded " style="margin-left: 5%;font-size:1.0em;color:#373636" ng-click="signupFacebook()">
+                Sign up with Facebook</button>
     </div>
 
     <div class="col-sm-offset-1 flexbox" style="margin-top: 30px">
         <div>
-            <button class="btn btn-rounded btn-llg btn-icon btn-default" style="font-size: 40px"><i class="fa fa-user"></i></button>
+            <img src="/img/identy.png" style="width: 6em" />
+            <!--<button class="btn btn-rounded btn-llg btn-icon btn-default" style="font-size: 40px"><i class="fa fa-user"></i></button>-->
         </div>
         <div class="flexbox gender_container">
                 <label class="i-checks i-checks-sm">
                     <input type="radio" ng-model="user.gender" value="Male">
                     <i></i>
-                    Main
+                    Man
                 </label>
 
                 <label class="i-checks i-checks-sm gender_item">
@@ -50,29 +52,60 @@
                         <input type="radio" ng-model="user.gender" value="Other">
                         <i></i>
                     </label>
-                    <input type="text" ng-disabled="user.gender != 'Other'" class="form-control" ng-model="user.custom_gender" style="display: inline; width: 180px" placeholder="I identify my gender as...">
+                    <input type="text" class="form-control " ng-model="user.custom_gender" style="display: inline; width: 180px" placeholder="I identify my gender as...">
                 </div>
         </div>
     </div>
-
-    <form ng-submit="submit()" class="form-horizontal form-validation" style="margin-top: 30px">
+    <form ng-submit="submit()" class="form-horizontal form-validation" style="margin-top: 30px;">
         <div class="formbox form-horizontal">
             <div class="col-lg-6">
                <div class="form-group" style="margin-top: 30px">
                     <div class="col-sm-6">
-                        <input type="email" name="email" ng-model="user.email" class="form-control" placeholder="E-mail" required>
+                        <div class="input-group">
+                            <input name="email" ng-model="user.email"  class="form-control" placeholder="E-mail" ng-change="emailchange(user.email)">
+                            <span class="input-group-btn" >
+                              <button type="button" class="btn btn-default" style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff" >
+                                  <i ng-show="em_1" class="glyphicon glyphicon-ok" style="<%em_1_color%>"></i>
+                                  <i ng-show="em_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
+                              </button>
+                            </span>
+                        </div>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <input type="email" name="confirm_email" ng-model="confirm_email" class="form-control" placeholder="Confirmation Email" required>
+                        <div class="input-group">
+                            <input type="text" name="confirm_email" ng-model="user.conf_email" class="form-control" ng-change="emailconfirm(user.email,user.conf_email)" placeholder="Confirmation Email">
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default" style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
+                                  <i ng-show="em_chk_1" class="glyphicon glyphicon-ok" style="<%em_chk_1_color%>"  ></i>
+                                  <i ng-show="em_chk_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
+                              </button>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-6">
-                        <input type="password" name="password" ng-model="user.password" class="form-control" placeholder="Password" required>
+                        <div class="input-group">
+                            <input type="password" name="password" ng-model="user.password" class="form-control" ng-change="CheckPassword(user.password)" placeholder="Password" required>
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default"  style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
+                                  <i ng-show="em_pass_1" class="glyphicon glyphicon-ok" style="<%em_pass_1_color%>"></i>
+                                  <i ng-show="em_pass_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
+                              </button>
+                            </span>
+                        </div>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <input type="password" name="confirm_password" ng-model="confirm_password" class="form-control" placeholder="Confirmation Password" required>
+                       <div class="input-group">
+                            <input type="password" name="confirm_password" ng-model="user.conf_password" class="form-control" ng-change="ConfirmPassword(user.password,user.conf_password)" placeholder="Confirmation Password" required>
+                            <span class="input-group-btn">
+                              <button type="button" class="btn btn-default"  style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
+                                  <i ng-show="em_pass_chk_1" class="glyphicon glyphicon-ok" style="<%em_pass_1_color%>"></i>
+                                  <i ng-show="em_pass_chk_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
+                              </button>
+                            </span>
+                       </div>
                     </div>
                 </div>
 
@@ -95,14 +128,14 @@
                         </div>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <select class='form-control' ng-model="user.national_id" placeholder="Nationality"
-                                ng-options="value.id as value.name for (key, value) in countrylist">
+                        <select class='form-control' ng-model="user.national_id" placeholder="Nationality"  ng-init="somethingHere = options[0]" ng-model="somethingHere"
+                                ng-options="value.id as value.name for (key, value) in nationallist">
                         </select>
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="col-sm-12 mobile-center" >
-                        <span>Click Where you live or nearest city</span>
+                        <span>City Where you live or nearest city</span>
                     </div>
                 </div>
 
@@ -121,8 +154,8 @@
             </div>
             <div class="col-lg-6">
                 <div class="form-group">
-                    <div class="col-sm-12 mobile-center" >
-                        <span>4 Cities you know well</span>
+                    <div class="col-sm-10 mobile-center" >
+                        <span>4 cities you know well</span>
                     </div>
                 </div>
 
@@ -133,7 +166,7 @@
                         </select>
                     </div>
                     <div class="col-sm-6 inline-input">
-                        <select class='form-control' ng-model="user.city_id1" placeholder="City"
+                        <select class='form-control' ng-model="user.city_id1"
                                 ng-options="value.id as value.name for (key, value) in citylist1">
                         </select>
                     </div>
@@ -180,12 +213,12 @@
 
                 <div class="form-group" >
                     <div class="col-sm-8 copyright_hint">
-                        <span>
+                        <span style="font-size: 90%;color:#000000 ">
                             By clicking on "Create Account" you agree to the<br/> <a style="text-decoration: underline;">Terms of use</a> and <a style="text-decoration: underline;">Privacy Policy</a>
                         </span>
                     </div>
                     <div class="col-sm-4" style="text-align: right">
-                        <button type="submit" class="btn btn-sm btn-default btn-rounded">Create Account</button>
+                        <button type="submit" class="btn btn-sm btn-default btn-rounded submit">Create Account</button>
                     </div>
                 </div>
 

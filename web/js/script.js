@@ -1,5 +1,7 @@
 $( document ).ready(function() {
-	
+
+
+
 	$("#invitation_first_name").focus();
 	
 	$("#slider-mobile").click(function() {

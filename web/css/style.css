@@ -1264,3 +1264,8 @@ body.gemmie table td {
 	border: 1px solid black;	
 	font-size: 13px;
 }
+
+button.submit {
+	font-size: 1.0em;
+}
+

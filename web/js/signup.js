@@ -1,6 +1,27 @@
 app = angular.module('app',    [
-        'ui.bootstrap', 'toaster', 'ngOpenFB',
-    ]);
+        'ui.bootstrap', 'toaster', 'ngOpenFB'], function($interpolateProvider) {
+    $interpolateProvider.startSymbol('<%');
+    $interpolateProvider.endSymbol('%>');
+});
+
+
+app.directive('ngModelOnblur', function() {
+    return {
+        restrict: 'A',
+        require: 'ngModel',
+        priority: 1, // needed for angular 1.2.x
+        link: function(scope, elm, attr, ngModelCtrl) {
+            if (attr.type === 'radio' || attr.type === 'checkbox') return;
+
+            elm.unbind('input').unbind('keydown').unbind('change');
+            elm.bind('blur', function() {
+                scope.$apply(function() {
+                    ngModelCtrl.$setViewValue(elm.val());
+                });
+            });
+        }
+    };
+});
 
 app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
      function initData() {
@@ -8,7 +29,19 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
          //ngFB.init({appId: '619623278194684'});
 
         $scope.user = {};
+         $scope.user.email = '';
          $scope.user.gender = "Male";
+         $scope.em_1=true;
+         $scope.em_2=false;
+         $scope.em_chk_1 = true;
+         $scope.em_1_color = 'color:white';
+         $scope.em_chk_1_color = 'color:white';
+         $scope.em_chk_2_color = 'color:red';
+
+         $scope.em_pass_1=true;
+         $scope.em_pass_1_color = 'color:white';
+         $scope.em_pass_2=false;
+
         $scope.dateOptions = {
             dateDisabled: disabled,
             formatYear: 'yy',
@@ -19,7 +52,21 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
         $http.get('/location')
             .then(function(response) {
                 $scope.countrylist = response.data.countrylist;
-                $scope.user.national_id = $scope.countrylist[0].id;
+
+                $scope.nationallist = angular.copy(response.data.countrylist);
+                var default_national = {};
+                default_national.id = 0;
+                default_national.name = "Nationality";
+                $scope.nationallist.unshift(default_national);
+                $scope.user.national_id = 0;
+
+                var default_country = {};
+                default_country.id = 0;
+                default_country.name = "Country";
+                $scope.countrylist.unshift(default_country);
+                $scope.user.country_id = 0;
+
+                $scope.user.national_id = $scope.nationallist[0].id;
                 $scope.user.country_id = $scope.countrylist[0].id;
                 $scope.user.country_id1 = $scope.countrylist[0].id;
                 $scope.user.country_id2 = $scope.countrylist[0].id;
@@ -32,6 +79,8 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
                 $scope.onSelectCountry($scope.user.country_id, 2);
                 $scope.onSelectCountry($scope.user.country_id, 3);
                 $scope.onSelectCountry($scope.user.country_id, 4);
+
+
             }).catch(function(response) {
             })
             .finally(function() {
@@ -43,26 +92,59 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
     $scope.onSelectCountry = function(country_id, num) {
         $http.get('/city/' + country_id)
             .then(function(response) {
+                var default_city = {};
+                default_city.id = 0;
+                default_city.name = "City";
                 switch (num) {
                     case 0:
-                        $scope.citylist0 = response.data.citylist;
-                        $scope.user.city_id = $scope.citylist0[0].id;
+                        if(country_id==0) {
+                            $scope.citylist0 = [];
+                            $scope.citylist0.unshift(default_city);
+                            $scope.user.city_id = $scope.citylist0[0].id;
+                        }else {
+                            $scope.citylist0 = response.data.citylist;
+                            $scope.user.city_id = $scope.citylist0[0].id;
+                        }
                         break;
                     case 1:
-                        $scope.citylist1 = response.data.citylist;
-                        $scope.user.city_id1 = $scope.citylist1[0].id;
+                        if(country_id==0) {
+                            $scope.citylist1 = [];
+                            $scope.citylist1.unshift(default_city);
+                            $scope.user.city_id1 = $scope.citylist1[0].id;
+                        }else {
+                            $scope.citylist1 = response.data.citylist;
+                            $scope.user.city_id1 = $scope.citylist1[0].id;
+                        }
                         break;
                     case 2:
-                        $scope.citylist2 = response.data.citylist;
-                        $scope.user.city_id2 = $scope.citylist2[0].id;
+                        if(country_id==0) {
+                            $scope.citylist2 = [];
+                            $scope.citylist2.unshift(default_city);
+                            $scope.user.city_id2 = $scope.citylist2[0].id;
+                        }else {
+                            $scope.citylist2 = response.data.citylist;
+                            $scope.user.city_id2 = $scope.citylist2[0].id;
+                        }
                         break;
                     case 3:
-                        $scope.citylist3 = response.data.citylist;
-                        $scope.user.city_id3 = $scope.citylist3[0].id;
+                        if(country_id==0) {
+                            $scope.citylist3 = [];
+                            $scope.citylist3.unshift(default_city);
+                            $scope.user.city_id3 = $scope.citylist3[0].id;
+                        }else {
+                            $scope.citylist3 = response.data.citylist;
+                            $scope.user.city_id3 = $scope.citylist3[0].id;
+                        }
                         break;
                     case 4:
-                        $scope.citylist4 = response.data.citylist;
-                        $scope.user.city_id4 = $scope.citylist4[0].id;
+                        if(country_id==0) {
+                            $scope.citylist4 = [];
+                            $scope.citylist4.unshift(default_city);
+                            $scope.user.city_id4 = $scope.citylist4[0].id;
+                        }else {
+                            $scope.citylist4 = response.data.citylist;
+                            $scope.user.city_id4 = $scope.citylist4[0].id;
+                        }
                         break;
                 }
 
@@ -86,6 +168,53 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
 
             });
     }
+//check mail address
+    $scope.emailchange = function(emailVal) {
+        var pattern=/^([a-zA-Z0-9_.-])+@([a-zA-Z0-9_.-])+\.([a-zA-Z])+([a-zA-Z])+/;
+        if(pattern.test(emailVal)){
+            $scope.em_1 = true;
+            $scope.em_2 = false;
+            $scope.em_1_color = 'color:#616060';
+        }else{
+            $scope.em_1 = false;
+            $scope.em_2 = true;
+        }
+    }
+
+//confirm mail address
+    $scope.emailconfirm = function(emailVal,emailConfirm) {
+        if(emailVal==emailConfirm){
+            $scope.em_chk_1 = true;
+            $scope.em_chk_2 = false;
+            $scope.em_chk_2_color = 'color:#616060';
+        }else{
+            $scope.em_chk_1 = false;
+            $scope.em_chk_2 = true;
+        }
+    }
+//check password
+    $scope.CheckPassword = function(passVal) {
+
+        if(passVal.length>4){
+            $scope.em_pass_1 = true;
+            $scope.em_pass_2 = false;
+        }else{
+            $scope.em_pass_1 = false;
+            $scope.em_pass_2 = true;
+        }
+    }
+
+//confirm password
+    $scope.ConfirmPassword = function(Original,Result) {
+        if(Original==Result){
+            $scope.em_pass_chk_1 = true;
+            $scope.em_pass_chk_2 = false;
+        }else{
+            $scope.em_pass_chk_1 = false;
+            $scope.em_pass_chk_2 = true;
+        }
+    }
+
 
     function getFacebookProfile(){
         ngFB.api({path: '/me',params: {fields: 'id,name,email,first_name,last_name,gender'}}).then(
