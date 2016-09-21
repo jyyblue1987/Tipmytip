@@ -36,11 +36,11 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
          $scope.em_chk_1 = true;
          $scope.em_1_color = 'color:white';
          $scope.em_chk_1_color = 'color:white';
-         $scope.em_chk_2_color = 'color:red';
-
          $scope.em_pass_1=true;
          $scope.em_pass_1_color = 'color:white';
          $scope.em_pass_2=false;
+         $scope.em_pass_chk_1=true;
+         $scope.em_pass_chk_1_color = 'color:white';
 
         $scope.dateOptions = {
             dateDisabled: disabled,
@@ -186,7 +186,7 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
         if(emailVal==emailConfirm){
             $scope.em_chk_1 = true;
             $scope.em_chk_2 = false;
-            $scope.em_chk_2_color = 'color:#616060';
+            $scope.em_chk_1_color = 'color:#616060';
         }else{
             $scope.em_chk_1 = false;
             $scope.em_chk_2 = true;
@@ -201,6 +201,7 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
         }else{
             $scope.em_pass_1 = false;
             $scope.em_pass_2 = true;
+            $scope.em_pass_1_color='color:#616060';
         }
     }
 
@@ -209,6 +210,7 @@ app.controller('SignUpController', function($scope, $http, ngFB, toaster) {
         if(Original==Result){
             $scope.em_pass_chk_1 = true;
             $scope.em_pass_chk_2 = false;
+            $scope.em_pass_chk_1_color='color:#616060';
         }else{
             $scope.em_pass_chk_1 = false;
             $scope.em_pass_chk_2 = true;

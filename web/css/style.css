@@ -1268,4 +1268,9 @@ body.gemmie table td {
 button.submit {
 	font-size: 1.0em;
 }
+.btn_color{
+	color: red;
+}
+
+
 

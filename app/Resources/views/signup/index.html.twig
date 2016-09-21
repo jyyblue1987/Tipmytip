@@ -23,18 +23,18 @@
 {% block body %}
 <div class="signup_content" ng-app="app" ng-controller="SignUpController">
     <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
-    <div class="col-sm-offset-1" style="margin-top: 100px">
-            <span style="font-size: 2em; color: #0d024c">Sign up</span>
-            <button class="btn btn-sm btn-default btn-rounded " style="margin-left: 5%;font-size:1.0em;color:#373636" ng-click="signupFacebook()">
+    <div class="col-sm-offset-1" style="margin-top: 100px;margin-left: 0.8em">
+            <span style="font-size: 1.5em; color: #0d024c">Sign up</span>
+            <button class="btn btn-sm btn-default btn-rounded " style="margin-left: 5%;font-size:0.8em;" ng-click="signupFacebook()">
                 Sign up with Facebook</button>
     </div>
 
-    <div class="col-sm-offset-1 flexbox" style="margin-top: 30px">
+    <div class="col-sm-offset-1 flexbox" style="margin-top: 30px;margin-left: 0.9em;">
         <div>
             <img src="/img/identy.png" style="width: 6em" />
             <!--<button class="btn btn-rounded btn-llg btn-icon btn-default" style="font-size: 40px"><i class="fa fa-user"></i></button>-->
         </div>
-        <div class="flexbox gender_container">
+        <div class="flexbox gender_container" >
                 <label class="i-checks i-checks-sm">
                     <input type="radio" ng-model="user.gender" value="Male">
                     <i></i>
@@ -46,13 +46,12 @@
                     <i></i>
                     Woman
                 </label>
-
-                <div class="radio">
-                    <label class="i-checks i-checks-sm gender_item">
-                        <input type="radio" ng-model="user.gender" value="Other">
+                <div class="radio"  style="min-width:300px; " >
+                    <label class="i-checks i-checks-sm gender_item" >
+                        <input type="radio" ng-model="user.gender" >
                         <i></i>
                     </label>
-                    <input type="text" class="form-control " ng-model="user.custom_gender" style="display: inline; width: 180px" placeholder="I identify my gender as...">
+                    <input type="text" class="form-control" ng-model="user.custom_gender" style="border-radius:0.2em;display: inline; width: 180px;" placeholder="I identify my gender as...">
                 </div>
         </div>
     </div>
@@ -63,11 +62,11 @@
                     <div class="col-sm-6">
                         <div class="input-group">
                             <input name="email" ng-model="user.email"  class="form-control" placeholder="E-mail" ng-change="emailchange(user.email)">
-                            <span class="input-group-btn" >
-                              <button type="button" class="btn btn-default" style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff" >
-                                  <i ng-show="em_1" class="glyphicon glyphicon-ok" style="<%em_1_color%>"></i>
-                                  <i ng-show="em_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
-                              </button>
+                            <span class="input-group-btn">
+                              <label type="button" class="btn"  >
+                                  <i ng-show="em_1" class="glyphicon glyphicon-ok" style="<%em_1_color%>" ></i>
+                                  <i ng-show="em_2" class="glyphicon glyphicon-remove btn_color" style="<%em_chk_2_color%>"></i>
+                              </label>
                             </span>
                         </div>
                     </div>
@@ -75,10 +74,10 @@
                         <div class="input-group">
                             <input type="text" name="confirm_email" ng-model="user.conf_email" class="form-control" ng-change="emailconfirm(user.email,user.conf_email)" placeholder="Confirmation Email">
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default" style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
+                              <label type="button" class="btn " >
                                   <i ng-show="em_chk_1" class="glyphicon glyphicon-ok" style="<%em_chk_1_color%>"  ></i>
-                                  <i ng-show="em_chk_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
-                              </button>
+                                  <i ng-show="em_chk_2" class="glyphicon glyphicon-remove btn_color" style="<%em_chk_2_color%>"></i>
+                              </label>
                             </span>
                         </div>
                     </div>
@@ -89,21 +88,21 @@
                         <div class="input-group">
                             <input type="password" name="password" ng-model="user.password" class="form-control" ng-change="CheckPassword(user.password)" placeholder="Password" required>
                             <span class="input-group-btn">
-                              <button type="button" class="btn btn-default"  style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
+                              <label type="button" class="btn " >
                                   <i ng-show="em_pass_1" class="glyphicon glyphicon-ok" style="<%em_pass_1_color%>"></i>
-                                  <i ng-show="em_pass_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
-                              </button>
+                                  <i ng-show="em_pass_2" class="glyphicon glyphicon-remove btn_color" style="<%em_pass_2_color%>"></i>
+                              </label>
                             </span>
                         </div>
                     </div>
                     <div class="col-sm-6 inline-input">
                        <div class="input-group">
                             <input type="password" name="confirm_password" ng-model="user.conf_password" class="form-control" ng-change="ConfirmPassword(user.password,user.conf_password)" placeholder="Confirmation Password" required>
-                            <span class="input-group-btn">
-                              <button type="button" class="btn btn-default"  style="background-color: #ffffff;border-right-color: #ffffff;border-top-color: #ffffff;border-bottom-color: #ffffff"   >
-                                  <i ng-show="em_pass_chk_1" class="glyphicon glyphicon-ok" style="<%em_pass_1_color%>"></i>
-                                  <i ng-show="em_pass_chk_2" class="glyphicon glyphicon-remove" style="<%em_chk_2_color%>"></i>
-                              </button>
+                             <span class="input-group-btn">
+                              <label type="button" class="btn"  >
+                                  <i ng-show="em_pass_chk_1" class="glyphicon glyphicon-ok" style="<%em_pass_chk_1_color%>"></i>
+                                  <i ng-show="em_pass_chk_2" class="glyphicon glyphicon-remove btn_color" style="<%em_pass_chk_2_color%>"></i>
+                              </label>
                             </span>
                        </div>
                     </div>
